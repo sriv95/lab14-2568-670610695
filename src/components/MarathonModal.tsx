@@ -65,7 +65,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
   useEffect(() => {discountCoupon()}, [mantineForm.values]);
 
   const onSubmitRegister = () => {
-    //  alert หลังจาก กด Register
+    alert("See you at CMU Marathon");
     onClose();
     reset();
   };
