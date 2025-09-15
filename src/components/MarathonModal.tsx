@@ -30,6 +30,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
     confirmPassword,
     haveCoupon,
     couponCode,
+    total,
     setFname,
     setLname,
     setPlan,
@@ -39,6 +40,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
     setConfirmPassword,
     setHaveCoupon,
     setCouponCode,
+    discountCoupon,
     reset,
   } = useMarathonFormStore();
 
@@ -60,7 +62,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
     validateInputOnChange: true,
   });
   // update Zustand form real-time
-  useEffect(() => { }, []);
+  useEffect(() => {discountCoupon()}, [mantineForm.values]);
 
   const onSubmitRegister = () => {
     //  alert หลังจาก กด Register
@@ -185,7 +187,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
           }}
           error={mantineForm.errors.couponCode} />
           {/* แสดงราคาการสมัครงานวิ่งตามแผนที่เลือก  */}
-          <Text>Total Payment : THB</Text>
+          <Text>Total Payment : {total} THB</Text>
           <Divider my="xs" variant="dashed" />
           <Checkbox
             label={
