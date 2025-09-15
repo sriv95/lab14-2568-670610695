@@ -6,6 +6,7 @@ interface MarathonFormState {
   gender: "male" | "female";
   email: string;
   password: string;
+  confirmPassword: string;
   // Setters
   setFname: (v: string) => void;
   setLname: (v: string) => void;
@@ -13,6 +14,7 @@ interface MarathonFormState {
   setGender: (v: MarathonForm["gender"]) => void;
   setEmail: (v: string) => void;
   setPassword: (v: string) => void;
+  setConfirmPassword: (v: string) => void;
   // Function ชื่อ discountCupon คำนวณ total ตรงนี้
   reset: () => void;
 }

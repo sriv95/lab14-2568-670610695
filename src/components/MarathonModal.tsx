@@ -44,6 +44,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
       agree,
       email,
       password: "",
+      confirmPassword: "",
     },
     validate: zod4Resolver(marathonSchema),
     validateInputOnChange: true,
@@ -114,6 +115,11 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
           <PasswordInput
             label="Confirm Password"
             description="Confirm Password"
+            value={mantineForm.values.confirmPassword}
+            onChange={(e) => {
+              mantineForm.setFieldValue("confirmPassword", e.currentTarget.value);
+            }}
+            error={mantineForm.errors.confirmPassword}
             withAsterisk
           />
           <Select
