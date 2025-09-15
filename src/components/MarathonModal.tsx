@@ -26,11 +26,19 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
     plan,
     gender,
     email,
+    password,
+    confirmPassword,
+    haveCoupon,
+    couponCode,
     setFname,
     setLname,
     setPlan,
     setGender,
     setEmail,
+    setPassword,
+    setConfirmPassword,
+    setHaveCoupon,
+    setCouponCode,
     reset,
   } = useMarathonFormStore();
 
@@ -72,7 +80,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
             <TextInput
               label="First name"
               withAsterisk
-              value={mantineForm.values.fname}
+              value={fname}
               onChange={(e) => {
                 setFname(e.currentTarget.value);
                 mantineForm.setFieldValue("fname", e.currentTarget.value);
@@ -82,7 +90,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
             <TextInput
               label="Last name"
               withAsterisk
-              value={mantineForm.values.lname}
+              value={lname}
               onChange={(e) => {
                 setLname(e.currentTarget.value);
                 mantineForm.setFieldValue("lname", e.currentTarget.value);
@@ -94,7 +102,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
             label="Email"
             withAsterisk
             description="ex.excemble@email.com"
-            value={mantineForm.values.email}
+            value={email}
             onChange={(e) => {
               setEmail(e.currentTarget.value);
               mantineForm.setFieldValue("email", e.currentTarget.value);
@@ -105,8 +113,9 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
           <PasswordInput
             label="Password"
             description="Password must contain 6-12 charaters"
-            value={mantineForm.values.password}
+            value={password}
             onChange={(e) => {
+              setPassword(e.currentTarget.value);
               mantineForm.setFieldValue("password", e.currentTarget.value);
             }}
             error={mantineForm.errors.password}
@@ -115,8 +124,9 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
           <PasswordInput
             label="Confirm Password"
             description="Confirm Password"
-            value={mantineForm.values.confirmPassword}
+            value={confirmPassword}
             onChange={(e) => {
+              setConfirmPassword(e.currentTarget.value);
               mantineForm.setFieldValue("confirmPassword", e.currentTarget.value);
             }}
             error={mantineForm.errors.confirmPassword}
