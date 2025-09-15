@@ -43,6 +43,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
       gender,
       agree,
       email,
+      password: "",
     },
     validate: zod4Resolver(marathonSchema),
     validateInputOnChange: true,
@@ -70,7 +71,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
             <TextInput
               label="First name"
               withAsterisk
-              value={fname}
+              value={mantineForm.values.fname}
               onChange={(e) => {
                 setFname(e.currentTarget.value);
                 mantineForm.setFieldValue("fname", e.currentTarget.value);
@@ -80,7 +81,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
             <TextInput
               label="Last name"
               withAsterisk
-              value={lname}
+              value={mantineForm.values.lname}
               onChange={(e) => {
                 setLname(e.currentTarget.value);
                 mantineForm.setFieldValue("lname", e.currentTarget.value);
@@ -92,7 +93,7 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
             label="Email"
             withAsterisk
             description="ex.excemble@email.com"
-            value={email}
+            value={mantineForm.values.email}
             onChange={(e) => {
               setEmail(e.currentTarget.value);
               mantineForm.setFieldValue("email", e.currentTarget.value);
@@ -103,6 +104,11 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
           <PasswordInput
             label="Password"
             description="Password must contain 6-12 charaters"
+            value={mantineForm.values.password}
+            onChange={(e) => {
+              mantineForm.setFieldValue("password", e.currentTarget.value);
+            }}
+            error={mantineForm.errors.password}
             withAsterisk
           />
           <PasswordInput
