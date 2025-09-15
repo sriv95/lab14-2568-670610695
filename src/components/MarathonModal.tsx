@@ -53,12 +53,14 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
       email,
       password: "",
       confirmPassword: "",
+      haveCoupon: false,
+      couponCode: "",
     },
     validate: zod4Resolver(marathonSchema),
     validateInputOnChange: true,
   });
   // update Zustand form real-time
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   const onSubmitRegister = () => {
     //  alert หลังจาก กด Register
@@ -172,9 +174,16 @@ export default function MarathonModal({ opened, onClose }: MarathonModalProps) {
             Coupon (30% Discount)
           </Alert>
           {/* เลือกกรออก coupon ตรงนี้ */}
-          <Checkbox label="I have coupon" />
+          <Checkbox label="I have coupon" checked={haveCoupon} onChange={(e) => {
+            setHaveCoupon(e.currentTarget.checked);
+            mantineForm.setFieldValue("haveCoupon", e.currentTarget.checked);
+          }} />
           {/* จะต้องแสดงเมื่อกด เลือก I have coupon เท่านั้น*/}
-          <TextInput label="Coupon Code" />
+          <TextInput label="Coupon Code" display={haveCoupon ? "block" : "none"} value={couponCode} onChange={(e) => {
+            setCouponCode(e.currentTarget.value)
+            mantineForm.setFieldValue("couponCode", e.currentTarget.value);
+          }}
+          error={mantineForm.errors.couponCode} />
           {/* แสดงราคาการสมัครงานวิ่งตามแผนที่เลือก  */}
           <Text>Total Payment : THB</Text>
           <Divider my="xs" variant="dashed" />

@@ -7,6 +7,8 @@ interface MarathonFormState {
   email: string;
   password: string;
   confirmPassword: string;
+  haveCoupon: boolean;
+  couponCode: string;
   // Setters
   setFname: (v: string) => void;
   setLname: (v: string) => void;
@@ -15,6 +17,8 @@ interface MarathonFormState {
   setEmail: (v: string) => void;
   setPassword: (v: string) => void;
   setConfirmPassword: (v: string) => void;
+  setHaveCoupon: (v: boolean) => void;
+  setCouponCode: (v: string) => void;
   // Function ชื่อ discountCupon คำนวณ total ตรงนี้
   reset: () => void;
 }
