@@ -38,10 +38,10 @@ export default function Sidebar() {
             color="red"
             withBorder
           >
-            <Avatar size="md" radius="xl" src="/charliebrown.jpg" />
+            <Avatar size="md" radius="xl" src="https://raw.githubusercontent.com/cpe207-2568/lab02v2-sriv95/refs/heads/master/pfp.JPG" />
           </Indicator>
           <Text component={RouterNavLink} to="/">
-            User : Chanadda : Admin
+            User : Tinnaphat : Student
           </Text>
         </Group>
       </Box>
